@@ -35,7 +35,7 @@ class User(object):
 #   server side, so anyone with access to this could do a lot of damage anyway.
 users = [
     # change this or add users as you see fit
-    User(1, 'rooney@ru.is', 'suchPass'),
+    User(1, 'karim@karim.com', 'karim'),
 ]   
 
 username_table = {u.username: u for u in users}

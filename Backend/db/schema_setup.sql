@@ -72,7 +72,7 @@ create table speaker_info (
     speakerId int not null,
     s_key varchar(255) not null, -- use key/value system to allow for flexible speaker info
     s_value varchar(255) not null,
-    foreign key (speakerId) references speaker(id),
+    foreign key (speakerId) references speaker(id) on delete cascade on update cascade,
     unique (speakerId, s_key)
 );
 alter table speaker convert to character set utf8 collate utf8_general_ci;
@@ -86,8 +86,8 @@ create table session (
     start varchar(50) not null,
     end varchar(50) not null,
     comments text not null,
-    foreign key (speakerId) references speaker(id),
-    foreign key (deviceId) references device(id),
+    foreign key (speakerId) references speaker(id) on delete cascade on update cascade,
+    foreign key (deviceId) references device(id) on delete cascade on update cascade,
     unique (speakerId, instructorId, deviceId, location, start, end)
 );
 alter table session convert to character set utf8 collate utf8_general_ci;
@@ -99,8 +99,8 @@ create table recording (
     sessionId int not null,
     filename varchar(255) not null,
     rec_method varchar(10) not null default 'eyra', -- enable labeling if recordings from other corpora are added to eyra format
-    foreign key (speakerId) references speaker(id),
-    foreign key (sessionId) references session(id)
+    foreign key (speakerId) references speaker(id) on delete cascade on update cascade,
+    foreign key (sessionId) references session(id) on delete cascade on update cascade
 );
 alter table recording convert to character set utf8 collate utf8_general_ci;
 
@@ -115,7 +115,7 @@ create table evaluation_sets (
     id int not null auto_increment primary key,
     eval_set varchar(255) not null,
     recordingId int not null,
-    foreign key (recordingId) references recording(id)
+    foreign key (recordingId) references recording(id) on delete cascade on update cascade
 );
 alter table evaluation_sets convert to character set utf8 collate utf8_general_ci;
 
@@ -127,7 +127,7 @@ create table evaluation (
     grade int not null,
     comments varchar(255) not null default '',
     skipped boolean not null default FALSE,
-    foreign key (recordingId) references recording(id)
+    foreign key (recordingId) references recording(id) on delete cascade on update cascade
 );
 alter table evaluation convert to character set utf8 collate utf8_general_ci;
 

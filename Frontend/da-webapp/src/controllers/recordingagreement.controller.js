@@ -50,14 +50,18 @@ function RecordingAgreementController($document, $location, $scope, $rootScope, 
   //////////
 
   function submit(choice) {
+/*
     if (!agrCtrl.fullName || !agrCtrl.email) {
       $scope.msg = util.getConstant('NAMEANDEMAILMISSINGMSG');;
       return;
     }
-
+*/
     if (choice === 'accept') {
-      dataService.set('fullName', agrCtrl.fullName);
-      dataService.set('email', agrCtrl.email);
+      //dataService.set('fullName', agrCtrl.fullName);
+      //dataService.set('email', agrCtrl.email);
+
+      dataService.set('fullName', 'No Names collected');
+      dataService.set('email', 'dummy@dummy.com');	
 
       logger.log('Agreement accepted.');
       $rootScope.agreementSigned = true;

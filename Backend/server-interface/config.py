@@ -19,7 +19,8 @@
 # pretty messy I know.
 # TODO make less messy (e.g. not sporadic config files everywhere)
 dbConst = dict(host='localhost',
-    user='default',
+    user='username',
+password='password',
     db='recordings_master',
     use_unicode=True,
     charset='utf8')

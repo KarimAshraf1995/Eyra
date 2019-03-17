@@ -90,7 +90,9 @@ function recordingService($http, logger, utilityService) {
   }
 
   function record() {
-    logger.log('Recording...');
+	audio_context.resume();
+	logger.log('AudioContext is ' + audio_context.state);
+    recorder && logger.log('Recording...');
     recorder && recorder.record();
   }
 
@@ -101,7 +103,7 @@ function recordingService($http, logger, utilityService) {
 
   function stop(valid) {
     recorder && recorder.stop();
-    logger.log('Stopped recording.');
+    recorder && logger.log('Stopped recording.');
 
     if (valid) {
       // create WAV download link using audio data blob and display on website

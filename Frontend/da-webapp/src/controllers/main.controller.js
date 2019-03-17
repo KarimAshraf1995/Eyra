@@ -112,7 +112,7 @@ function MainController($location,
     });
 
     // async things
-    locService.init(locServiceInitDoneCallback); // lets not require location
+    //locService.init(locServiceInitDoneCallback); // lets not require location
     recService.init(recServiceInitDoneCallback);
     getTokensIfNeeded();
 

@@ -30,6 +30,7 @@ class DbHandler:
         # MySQL configurations
         app.config['MYSQL_HOST'] = dbConst['host']
         app.config['MYSQL_USER'] = dbConst['user']
+        app.config['MYSQL_PASSWORD'] = dbConst['password']
         app.config['MYSQL_DB']   = dbConst['db']
         app.config['MYSQL_USE_UNICODE'] = dbConst['use_unicode']
         app.config['MYSQL_CHARSET'] = dbConst['charset']
