@@ -20,7 +20,7 @@ File author/s:
     Matthias Petursson <oldschool01123@gmail.com>
 */
 
---create user 'default'@'localhost';
+create user 'username'@'%' IDENTIFIED BY 'password';  
 grant select on recordings_master.device to 'username'@'%' IDENTIFIED BY 'password';  
 grant select on recordings_master.instructor to 'username'@'%' IDENTIFIED BY 'password';  
 grant select on recordings_master.session to 'username'@'%' IDENTIFIED BY 'password';  
