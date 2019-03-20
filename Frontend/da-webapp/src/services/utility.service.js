@@ -124,11 +124,12 @@ function utilityService(logger) {
     //recording
      'RECTEXT' : 'Rec', //text under rec button
      'STOPTEXT' : 'Stop',
+     'NEXTTEXT' : 'Next',
      'SKIPTEXT' : 'Skip',
      'PROMPTSREADTEXT' : 'Prompts read:',
      'UTTQUALITYTEXT' : 'Quality of utts',
      'UTTUPLOADEDTEXT' : 'Utterances uploaded',
-     'INITTOKENTEXT' : 'Hit \'Rec\' for prompt',
+     'INITTOKENTEXT' : 'Hit \'Next\' for prompt',
      'RECORDINGNOWTEXT' : 'Recording now...',
      'WAITINGFORTOKENTEXT' : 'Waiting for new token...',
      'TOKENSKIPPEDTEXT' : 'Token skipped',

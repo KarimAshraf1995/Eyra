@@ -226,6 +226,10 @@ body {
   @extend .glyph-default;
   color: red;
 }
+.glyphicon-arrow-right {
+  @extend .glyph-default;
+  color:blue;
+}
 .glyphicon-stop, .glyphicon-step-backward {
   @extend .glyph-default;
 }

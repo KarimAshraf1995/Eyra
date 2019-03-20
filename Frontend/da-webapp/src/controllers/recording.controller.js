@@ -87,12 +87,14 @@ function RecordingController($q,
   var speaker = dataService.get('speakerName');
   $scope.tokensRead = tokensRead(speaker); // fetch tokenRead for current speaker/user
 
-  var actionType = 'record'; // current state
+  var actionType = 'next'; // current state
 
   var RECGLYPH = 'glyphicon-record'; // bootstrap glyph class
   var STOPGLYPH = 'glyphicon-stop';
-  $scope.actionText = util.getConstant('RECTEXT');
-  $scope.actionGlyph = RECGLYPH;
+  var NEXTGLYPH = 'glyphicon-arrow-right';
+
+  $scope.actionText = util.getConstant('NEXTTEXT');
+  $scope.actionGlyph = NEXTGLYPH;
   $scope.hide_playback = true;
 
   var currentToken = {'id':0, 'token': util.getConstant('INITTOKENTEXT')};
@@ -140,7 +142,10 @@ function RecordingController($q,
 
   // signifies the combined rec/stop button
   function action() {
-    if (actionType === 'record') {
+    //logger.log("Entered action with actionType = " + actionType);
+    if (actionType === 'next') {
+      fetchToken();
+    } else if (actionType === 'record') {
       record();
     } else if (actionType === 'stop') {
       stop(true);
@@ -212,38 +217,51 @@ function RecordingController($q,
   }
 
   function toggleActionBtn() {
-    if (actionType === 'record') {
+    //logger.log("Entered toggleActionBtn with actionType = " + actionType);
+    if (actionType === 'next') {
+      actionType = 'record';
+      $scope.actionText = util.getConstant('RECTEXT');
+      $scope.actionGlyph = RECGLYPH;
+      $scope.hide_playback = true;
+    } else if (actionType === 'record') {
       actionType = 'stop';
       $scope.actionText = util.getConstant('STOPTEXT');
       $scope.actionGlyph = STOPGLYPH;
       $scope.hide_playback = true;
     } else if (actionType === 'stop') {
-      actionType = 'record';
+      actionType = 'next';
       $scope.hide_playback = false;
-      $scope.actionText = util.getConstant('RECTEXT');
-      $scope.actionGlyph = RECGLYPH;
+      $scope.actionText = util.getConstant('NEXTTEXT');
+      $scope.actionGlyph = NEXTGLYPH;
     }
   }
 
-  function record() {
-    $scope.msg = util.getConstant('RECORDINGNOWTEXT');
 
-    recCtrl.skipBtnDisabled = false;
-    if (actionType === 'record') {
-      toggleActionBtn();
-    }
-    recCtrl.actionBtnDisabled = false;
-
-    recService.record();
-
-    currentToken = {'id':0, 'token': util.getConstant('WAITINGFORTOKENTEXT')};    
-
+  function fetchToken() {
+    //logger.log("Entered fetchToken");
+    currentToken = {'id':0, 'token': util.getConstant('WAITINGFORTOKENTEXT')};   
     // show token on record/newToken button hit
     tokenService.nextToken().then(function(token){
       recCtrl.displayToken = token['token'];
       currentToken = token;
     },
     util.stdErrCallback);
+
+     
+    recCtrl.skipBtnDisabled = false;
+    recCtrl.actionBtnDisabled = false;
+    toggleActionBtn();
+  }
+
+  function record() {
+    //logger.log("Entered record");
+    $scope.msg = util.getConstant('RECORDINGNOWTEXT');
+    recCtrl.skipBtnDisabled = false;
+    if (actionType === 'record') {
+      toggleActionBtn();
+    }
+    
+    recService.record();
   }
 
   
@@ -296,9 +314,9 @@ function RecordingController($q,
               // so long as the user is not in a recording
               //   display report straight away
               // otherwise, queue it for next stop click.
-              if (actionType === 'record') {
+              if (actionType === 'next') {
                 displayReport();
-              } else {
+              } else if (actionType !== 'record'){
                 shouldDisplayReport = true;
               }
             }
@@ -342,15 +360,18 @@ function RecordingController($q,
   }
 
   function skip() {
+    //logger.log("Entered skip");
     $scope.msg = util.getConstant('TOKENSKIPPEDTEXT');
 
     if (currentToken.id !== 0) {
       stop(false);
     }
-    record();
+    actionType='next';
+    fetchToken();
   }
 
   function stop(valid) {
+    //logger.log("Entered stop with valid = " + valid);
     $scope.msg = util.getConstant('STOPPEDTEXT');
 
     recCtrl.actionBtnDisabled = true;
