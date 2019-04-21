@@ -39,7 +39,7 @@ File author/s:
 -- insert into session (speakerId, instructorId, deviceId, location, start, end, comments)
 -- values 
     -- (1, 1, 1, 'Norway etc.', '2015/10/1 15:00:00.00', '2015/10/1 15:00:30.05', 'Much wind.');
---add the special set Random
+-- add the special set Random
 -- insert into recording (tokenId, speakerId, sessionId, filename, rec_method)
 -- values
     -- (1, 1, 1, 'NOTAREALRECORDING', 'eyra');
