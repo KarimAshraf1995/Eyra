@@ -20,7 +20,7 @@ File author/s:
     Sveinn Ernstsson
 -->
 
-<html lang="en" ng-app="daApp" manifest="app.appcache"><!-- comment the appcache for quick development -->
+<html ng-app="daApp" manifest="app.appcache"><!-- comment the appcache for quick development -->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -39,7 +39,7 @@ File author/s:
     <script type="text/javascript" 
     src="https://cdnjs.cloudflare.com/ajax/libs/async/1.5.2/async.js"></script>-->
 </head>
-<body>
+<body dir="rtl">
     <nav class="navbar navbar-inverse navbar-static-top">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -48,21 +48,17 @@ File author/s:
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-cd"> EYRA</span></a>
+          <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-cd">EGY_SPEECH</span></a>
         </div>
-        <div class="collapse navbar-collapse main-nav">
+        <div class="collapse navbar-collapse main-nav" style="float:right">
           <ul class="nav navbar-nav">
             <li><a ng-href="#/info">
-                Info <span class="glyphicon glyphicon-info-sign navbar-glyph"></span>
+              <span class="glyphicon glyphicon-info-sign navbar-glyph"></span>
+              الإصدار 
             </a></li>
             <li><a ng-href="#/sync">
-                Sync <span class="glyphicon glyphicon-refresh navbar-glyph"></span>
-            </a></li>
-            <li><a ng-href="#/evaluation">
-                Evaluate <span class="glyphicon glyphicon-headphones navbar-glyph"></span>
-            </a></li>
-            <li><a ng-href="#/more">
-                Admin <span class="glyphicon glyphicon-cog navbar-glyph"></span>
+              <span class="glyphicon glyphicon-refresh navbar-glyph"></span>
+                الرفع 
             </a></li>
           </ul>
         </div>
@@ -70,7 +66,7 @@ File author/s:
     </nav>
     <!-- BEGIN: Pre-Bootstrap Loading Screen. -->
     <div ng-if="false">
-        <p class="loading_msg">Starting Angular</p>
+        <p class="loading_msg">جارى التحميل</p>
     </div>
     <!-- END: Pre-Bootstrap Loading Screen. -->
     <div class="vertical-center" ng-show="!isLoaded">
