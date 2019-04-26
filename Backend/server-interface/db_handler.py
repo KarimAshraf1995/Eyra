@@ -515,6 +515,8 @@ class DbHandler:
                 tokenId = jsonDecoded['recordingsInfo'][rec.filename]['tokenId']
                 # use token sent as text if available to write to metadata file (in case database is wrong)
                 #   to be salvaged later if needed.
+                #Update number of recordings for the token
+                cur.execute('UPDATE token SET recordings = recordings + 1 WHERE id=%s',(tokenId,))
                 token = None
                 if 'tokenText' in jsonDecoded['recordingsInfo'][rec.filename]:
                     token = jsonDecoded['recordingsInfo'][rec.filename]['tokenText']
@@ -668,7 +670,7 @@ class DbHandler:
         try:
             cur = self.mysql.connection.cursor()
             # Get list of random tokens which are valid from the mysql database
-            cur.execute('SELECT id, inputToken, valid FROM token WHERE valid=1 ORDER BY RAND() LIMIT %s',
+            cur.execute('SELECT id, inputToken, valid FROM token WHERE valid=1 ORDER BY recordings, RAND() LIMIT %s',
                         (numTokens, ))
             tokens = cur.fetchall()
         except MySQLError as e:
