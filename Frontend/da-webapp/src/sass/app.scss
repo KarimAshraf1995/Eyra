@@ -356,8 +356,6 @@ ul {
 /* give parent of centered element this class */
 .vertical-center {
   height: 100%; /* fallback */
-  height: 100vh;
-
   display: flex;
   align-items: center;
   flex-direction: column;
