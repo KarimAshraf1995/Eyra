@@ -171,6 +171,9 @@ body {
   /* Webkit browsers*/
   -webkit-transform: scale(1.5);
 }
+.checkbox label, .radio label {
+  padding-right: 20px;
+}
 .checkbox { 
   padding-left: 2%; 
   padding-right: 2%; 
