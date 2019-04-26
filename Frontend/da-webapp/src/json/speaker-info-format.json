@@ -2,10 +2,10 @@
     {
         "attribute" : "gender",
         "type" : "select",
-        "options" : ["Male", "Female", "Other"],
+        "options" : ["Male", "Female"],
         "required" : true,
-        "label" : "Gender",
-        "description" : "Select your gender."
+        "label" : "النوع",
+        "description" : ""
     },
     {
         "attribute" : "dob",
@@ -108,8 +108,8 @@
                         "1921"
                     ],
         "required" : true,
-        "label" : "Year of birth",
-        "description" : "Select the year you were born in."
+        "label" : "سنة الميلاد",
+        "description" : ""
     },
     {
         "attribute" : "height",
@@ -173,7 +173,7 @@
 
                     ],
         "required" : false,
-        "label" : "Height (optional)",
-        "description" : "Enter your height in centimeters."
+        "label" : "الطول",
+        "description" : ""
     }
 ]

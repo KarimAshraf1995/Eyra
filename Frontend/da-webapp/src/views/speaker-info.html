@@ -25,12 +25,12 @@ File author/s:
             <div ng-class="{{attr.type === 'checkbox' && 'checkbox' || 'form-group'}}" ng-repeat="attr in attributes">
                 <!-- text or number -->
                 <label for="{{attr.attribute}}" ng-if="attr.label&&(attr.type==='text'||attr.type==='number')">
-                    {{attr.label}} <span ng-if="attr.required">*</span>
+                     <span ng-if="attr.required">*</span> {{attr.label}}
                 </label>
                 <input class="form-control" id="{{attr.attribute}}" type="{{attr.type}}" ng-model="sinfoCtrl[attr.attribute]" placeholder="{{attr.placeholder}}" ng-required="attr.required" ng-if="attr.type==='text'||attr.type==='number'">
                 <!-- select -->
                 <label for="{{attr.attribute}}" ng-if="attr.label&&attr.type==='select'">
-                    {{attr.label}} <span ng-if="attr.required">*</span>
+                    <span ng-if="attr.required">*</span> {{attr.label}}
                 </label>
                 <select class="form-control" id="{{attr.attribute}}" name="{{attr.attribute}}" ng-model="sinfoCtrl[attr.attribute]" ng-required="attr.required" ng-if="attr.type==='select'">
                     <option value=""></option>
@@ -39,7 +39,7 @@ File author/s:
                 <!-- checkbox -->
                 <label for="{{attr.attribute}}" ng-if="attr.type==='checkbox'">
                     <input id="{{attr.attribute}}" type="{{attr.type}}" ng-model="sinfoCtrl[attr.attribute]" ng-required="attr.required">
-                    {{attr.label}} <span ng-if="attr.required">*</span>
+                    <span ng-if="attr.required">*</span> {{attr.label}} 
                 </label>
             </div>
             <button class="form-control btn btn-primary" type="submit" value="">
