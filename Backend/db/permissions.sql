@@ -40,4 +40,4 @@ grant insert on recordings_master.speaker_info to 'username'@'%' IDENTIFIED BY '
 grant insert on recordings_master.evaluation to 'username'@'%' IDENTIFIED BY 'password';  
 
 grant update on recordings_master.session to 'username'@'%' IDENTIFIED BY 'password';  
-
+grant update on recordings_master.token to 'username'@'%' IDENTIFIED BY 'password';
