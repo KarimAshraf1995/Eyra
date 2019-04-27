@@ -59,6 +59,7 @@ function SyncController($rootScope, $scope, dataService, deliveryService, localD
   $scope.syncing = util.getConstant('SYNCINGMSG');
   $scope.syncComplete = util.getConstant('SYNCCOMPLETEMSG');
   $scope.syncFailed = util.getConstant('SYNCFAILEDMSG');
+  $scope.checkInternet  = util.getConstant('CHECKNETMSG');
 
   activate();
   
@@ -141,7 +142,7 @@ function SyncController($rootScope, $scope, dataService, deliveryService, localD
     updateRecsSaved();
 
     if (!result){
-      $scope.wifi_msg = 'Please connect your device to the internet.';
+      $scope.wifi_msg = $scope.checkInternet;
       $scope.hide_recording = true;
       $scope.hide_wifi_msg = false;
     } else {

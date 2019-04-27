@@ -2,7 +2,7 @@
     {
         "attribute" : "gender",
         "type" : "select",
-        "options" : ["Male", "Female"],
+        "options" : ["ذكر", "أنثى"],
         "required" : true,
         "label" : "النوع",
         "description" : ""

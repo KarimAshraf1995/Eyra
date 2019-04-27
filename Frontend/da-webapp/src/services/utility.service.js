@@ -110,6 +110,7 @@ function utilityService(logger) {
     'SYNCINGMSG' : 'جارى رفع التسجيلات -- يرجى الانتظار',
     'SYNCCOMPLETEMSG' : 'تم رفع التسجيلات بنجاح',
     'SYNCFAILEDMSG' : 'فشل فى رفع التسجيلات',
+    'CHECKNETMSG' : '.يرجى توصيل الجهاز بالإنترنت',
     //recording agreement
     'FULLNAMETEXT' : 'الاسم',
     'EMAILTEXT' : 'Email',
@@ -175,7 +176,7 @@ function utilityService(logger) {
     'SETERRORMSG' : 'Please select a set.',
     'USERSETERRORMSG' : 'Type a username and select a set',
     'APPINITIALIZATIONFAILMSG' : 'App failed to initialize. Try refreshing the page and check your connection.',
-    'GETPROMPTSMSGTEXT' : 'جارى التحميل يرجى الانتظار',
+    'GETPROMPTSMSGTEXT' : 'جاري تحميل بعض الجمل يرجى الإنتظار. هذا قد يأخذ دقيقة أو أكثر حسب سرعة الإنترنت لديك ',
     'WAITINGTEXT' : 'يرجى الانتظار',
     'FAILEDTOGETTOKENS' : 'فشل تحميل الجمل',
     'PLAYBACKERRORMSG' : 'حدث خطأ فى اعادة التشغيل',
