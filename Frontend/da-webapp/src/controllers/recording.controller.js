@@ -117,28 +117,27 @@ function RecordingController($q,
 
   $scope.recsDelivered = 0;
 
-  activate();
+  pre_activate();
 
   ////////// 
 
-  function activate() {
-    recService.setupCallbacks(recordingCompleteCallback);
-    var res = volService.init(recService.getAudioContext(), recService.getStreamSource());
-    if (!res) logger.log('Volume meter failed to initialize.');
-    qcService.setupCallbacks(qcDataReady);
-
-    // get recsDelivered, first check RAM, then ldb
-    $scope.recsDelivered = dataService.get('recsDelivered') || 0;
-    if ($scope.recsDelivered === 0) {
-      miscDbService.getSpeaker(speaker).then(function(dbSpeaker){
-        if (dbSpeaker && dbSpeaker.recsDelivered) {
-          $scope.recsDelivered = dbSpeaker.recsDelivered;
-        }
-      }, util.stdErrCallback);
-    }
-    
-    $rootScope.isLoaded = true; // is page loaded?  
+  function pre_activate(){
+    recService.init(recServiceInitDoneCallback);
   }
+
+  function recServiceInitDoneCallback(result) {
+    if (result){
+      //recorderPromise.resolve(true);
+      alert("Thank you for participating!\nPlease don't forget to visit SYNC page after you finish to upload your recordings");
+      activate();
+    }
+    else{
+      //recorderPromise.reject('Recorder not initialized.');
+      alert('Sorry, microphone is needed');
+      window.location="/";
+    }
+  }
+
 
   // signifies the combined rec/stop button
   function action() {

@@ -83,9 +83,9 @@ function MainController($location,
   var recorderPromise, tokensPromise, initPromises;
   if (!$rootScope.appInitialized) {
     // promises for everything async that needs to be done for app to count as initialized
-    recorderPromise = $q.defer();
+    //recorderPromise = $q.defer();
     tokensPromise = $q.defer();
-    initPromises = {  'recorder' : recorderPromise.promise, 
+    initPromises = {  //'recorder' : recorderPromise.promise, 
                       'tokens'   : tokensPromise.promise};
 
     init();
@@ -113,7 +113,7 @@ function MainController($location,
 
     // async things
     //locService.init(locServiceInitDoneCallback); // lets not require location
-    recService.init(recServiceInitDoneCallback);
+    //recService.init(recServiceInitDoneCallback); //moved to recording controller
     getTokensIfNeeded();
 
     $q.all(initPromises).then(function(tasksComplete){
