@@ -24,40 +24,55 @@ File author/s:
         <!-- start agreement -->
         <div class="agreement">
             <h2>PARTICIPANT AGREEMENT</h2>
-            <p>We are 4th year students from Cairo University, Faculty of Engineering, Computer Engineering department and we will be collecting voice samples and other information from you for use for our graduation project, and for other public projects</p>
-			
- 
-<p>You confirm that you are of the age of majority and capable of entering into a binding agreement. If you are 
-not, you may not participate. </p>
+            <p>We are 4th year students from Cairo University, Faculty of Engineering, Computer Engineering department
+                and we will be collecting voice samples and other information from you for use for our graduation
+                project, and for other public projects</p>
+
+
+            <p>You confirm that you are of the age of majority and capable of entering into a binding agreement. If you
+                are
+                not, you may not participate. </p>
             <h2>By participating: </h2>
-            <p>1. You agree to provide voice samples in the language requested, as well as comments, 
-feedback, ideas, reports, suggestions, data or other information as requested (collectively 
-“Feedback”)</p>
-<p>
-2. You agree that we may use this Feedback to develop and improve our product, and that we may 
-share the Feedback with the University and others, including the general public, to facilitate the development 
-of voice related technologies. You understand that your voice alone or in combination with other information 
-you provide could identify you. You specifically waive and release any potential intellectual property right, 
-right of publicity, or right of privacy claim against us, the University, or others for use or sharing of your 
-Feedback.
-</p>
-<p>
-3. You acknowledge that our project, including your data, may be public for others to use.</p>
-<h2>You understand and agree that: </h2>
-            <p>1. During your participation, you may encounter content that you may find offensive, indecent or 
-objectionable. We are not responsible for such content as they are randomly collected from the internet. You may choose to not provide Feedback for that content. </p>
-            <p>2. We are not obligated to use your Feedback. You will not be compensated for 
-your participation or for the use or sharing of your Feedback. Furthermore, you are not an agent or partner or sponser
-for our team because of your participation. </p>
-            
+            <p>1. You agree to provide voice samples in the language requested, as well as comments,
+                feedback, ideas, reports, suggestions, data or other information as requested (collectively
+                “Feedback”)</p>
+            <p>
+                2. You agree that we may use this Feedback to develop and improve our product, and that we may
+                share the Feedback with the University and others, including the general public, to facilitate the
+                development
+                of voice related technologies. You understand that your voice alone or in combination with other
+                information
+                you provide could identify you. You specifically waive and release any potential intellectual property
+                right,
+                right of publicity, or right of privacy claim against us, the University, or others for use or sharing
+                of your
+                Feedback.
+            </p>
+            <p>
+                3. You acknowledge that our project, including your data, may be public for others to use.</p>
+            <h2>You understand and agree that: </h2>
+            <p>1. During your participation, you may encounter content that you may find offensive, indecent or
+                objectionable. We are not responsible for such content as they are randomly collected from the internet.
+                You may choose to not provide Feedback for that content. </p>
+            <p>2. We are not obligated to use your Feedback. You will not be compensated for
+                your participation or for the use or sharing of your Feedback. Furthermore, you are not an agent or
+                partner or sponser
+                for our team because of your participation. </p>
+
         </div>
         <!-- end agreement -->
 
-        <hr/>
+        <hr />
+        <p style="color:red">
+            <b>تنويه</b>
+            نحن غير مسئولين عن محتوى الكلمات التي ستقرأها الان, نحن لم نقم بتجميع هذه الجمل وإنما استعملنا ماجمعته بعض
+            الاوراق البحثية, نتاسف مقدما عن ما قد يزعجكم ونشكر حسن تفهمكم
+        </p>
+        <hr />
 
-
-	        <form>
-            <div class="form-group"><!--
+        <form>
+            <div class="form-group">
+                <!--
                 <label for="fullName">{{fullNameText}} *</label>
                 <input class="form-control" id="fullName" type="text" ng-model="agrCtrl.fullName" placeholder="{{fullnamePlaceholder}}" required>
             </div>
@@ -65,15 +80,16 @@ for our team because of your participation. </p>
                 <label for="email">{{emailText}} *</label>
                 <input class="form-control" id="email" type="email" ng-model="agrCtrl.email" placeholder="{{emailPlaceholder}}" required>
             </div>-->
-            <button class="form-control btn btn-primary" ng-click="agrCtrl.submit('accept')" value="">
-                {{acceptText}}
-            </button>
-            <button class="form-control btn btn-primary" ng-click="agrCtrl.submit('decline')" value="">
-                {{declineText}}
-            </button>
+                <button class="form-control btn btn-primary" ng-click="agrCtrl.submit('accept')" value="">
+                    {{acceptText}}
+                </button>
+                <button class="form-control btn btn-primary" ng-click="agrCtrl.submit('decline')" value="">
+                    {{declineText}}
+                </button>
         </form>
 
-        <p class="message">{{msg}}</p>	
+        <p class="message">{{msg}}</p>
+
 
     </div>
 </div>
