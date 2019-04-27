@@ -16,8 +16,8 @@ limitations under the License.
 File author/s:
     Matthias Petursson <oldschool01123@gmail.com>
 -->
-<script>alert("شكرا لمشاركتك معنا. من فضلك لا تنسى الذهاب الى صفحة الرفع لرفع التسجيلات");recCtrl.activate_meter();</script>
-<div class="content vertical-center">
+<script>alert("شكرا لمشاركتك معنا. من فضلك لا تنسى الذهاب الى صفحة الرفع لرفع التسجيلات");</script>
+<div class="content vertical-center" ng-init="{{recCtrl.activate()}}">
     <div class="recording-view">
         <p class="token">{{recCtrl.displayToken}}</p>
         <div id="playback" ng-hide="hide_playback">

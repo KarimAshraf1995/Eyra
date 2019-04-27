@@ -117,13 +117,16 @@ function RecordingController($q,
 
   $scope.recsDelivered = 0;
 
-  activate();
+  //activate();
 
   ////////// 
 
   function activate() {
     recService.setupCallbacks(recordingCompleteCallback);
     qcService.setupCallbacks(qcDataReady);
+
+    var res = volService.init(recService.getAudioContext(), recService.getStreamSource());
+    if (!res) logger.log('Volume meter failed to initialize.');
 
     // get recsDelivered, first check RAM, then ldb
     $scope.recsDelivered = dataService.get('recsDelivered') || 0;
@@ -138,10 +141,6 @@ function RecordingController($q,
     $rootScope.isLoaded = true; // is page loaded?  
   }
 
-  function activate_meter() {
-    var res = volService.init(recService.getAudioContext(), recService.getStreamSource());
-    if (!res) logger.log('Volume meter failed to initialize.');
-  }
   // signifies the combined rec/stop button
   function action() {
     //logger.log("Entered action with actionType = " + actionType);
