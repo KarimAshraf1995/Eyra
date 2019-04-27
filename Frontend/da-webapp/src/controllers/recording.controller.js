@@ -117,7 +117,7 @@ function RecordingController($q,
 
   $scope.recsDelivered = 0;
 
-  //activate();
+  activate();
 
   ////////// 
 
