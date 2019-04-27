@@ -117,9 +117,26 @@ function RecordingController($q,
 
   $scope.recsDelivered = 0;
 
-  activate();
+  pre_activate();
 
   ////////// 
+
+  function pre_activate(){
+    recService.init(recServiceInitDoneCallback);
+  }
+
+  function recServiceInitDoneCallback(result) {
+    if (result){
+      //recorderPromise.resolve(true);
+      alert("شكرا لمشاركتك معنا. من فضلك لا تنسى الذهاب الى صفحة الرفع لرفع التسجيلات");
+      activate();
+    }
+    else{
+      //recorderPromise.reject('Recorder not initialized.');
+      alert('يجب استختدام الميكروفون لتسجبل');
+      window.location="/";
+    }
+  }
 
   function activate() {
     recService.setupCallbacks(recordingCompleteCallback);
